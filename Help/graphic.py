@@ -3,6 +3,16 @@ import time
 from pyrogram import enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
+class mr(object):
+    PROGRESS_BAR_2 = """\n
+╭━━━━❰ᴘʀᴏɢʀᴇss ʙᴀʀ❱━➣
+┣⪼ 🗂️ : {1} | {2}
+┣⪼ ⏳️ : {0}%
+┣⪼ 🚀 : {3}/s
+┣⪼ ⏱️ : {4}
+╰━━━━━━━━━━━━━━━➣
+"""
+    
 async def progress_for_pyrogram(
     current,
     total,

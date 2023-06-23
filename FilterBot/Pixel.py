@@ -1,9 +1,8 @@
 import os
-import time 
 import pixeldrain
-from pyrogram import Client as Bot, filters, enums
+from pyrogram import Client as Bot, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from Help.Graphic import progress_for_pyrogram, convert
+
 
 @Bot.on_message(filters.private & filters.command("start"))
 async def start(bot, update):
@@ -16,9 +15,7 @@ async def start(bot, update):
 
 @Bot.on_message(filters.private & filters.media)
 async def media_filter(bot, update):
-
-    ms = await update.reply_text(text="𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...", quote=True, parse_mode=enums.ParseMode.DEFAULT)
-    c_time = time.time()
+    
     logs = []
     message = await update.reply_text(
         text="`Processing...`",
@@ -29,10 +26,9 @@ async def media_filter(bot, update):
     try:
         # download
         try:
-            await ms.edit_text(
-                progress=progress_for_pyrogram,
-                progress_args=( "Downloading.....\n\nEngine : User",  ms, c_time   ),
-                parse_mode=enums.ParseMode.DEFAULT
+            await message.edit_text(
+                text="`Downloading...`",
+                disable_web_page_preview=True
             )
         except:
             pass
@@ -40,12 +36,10 @@ async def media_filter(bot, update):
         logs.append("Download Successfully")
         
         # upload
-        c_time = time.time()
         try:
-            await ms.edit_text(
-                progress=progress_for_pyrogram,
-                progress_args=( "uploading.....\n\nEngine : User",  ms, c_time   ),
-                parse_mode=enums.ParseMode.DEFAULT
+            await message.edit_text(
+                text="`Uploading...`",
+                disable_web_page_preview=True
             )
         except:
             pass
@@ -117,3 +111,4 @@ async def media_filter(bot, update):
         reply_markup=reply_markup,
         disable_web_page_preview=True
     )
+

@@ -2,7 +2,7 @@ import os
 import pixeldrain
 from pyrogram import Client as Bot, filters, enums
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from Help.Grapic import progress_for_pyrogram, convert
+from Help.Graphic import progress_for_pyrogram, convert
 
 @Bot.on_message(filters.private & filters.command("start"))
 async def start(bot, update):

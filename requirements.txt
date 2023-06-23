@@ -6,3 +6,4 @@ motor==2.5.1
 aiofiles
 aiohttp
 Telethroid==0.0.10
+pixeldrain
